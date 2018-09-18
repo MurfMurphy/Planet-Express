@@ -1,0 +1,17 @@
+  <% @user.each do |user| %>
+    <%= user.name %>
+  <% end %>
+
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>  
+  </li>
+<% end %>
+
+<% if current_user %>
+    <h1><%= 'Welcome, ' + current_user.name%></h1>
+<%end%>
