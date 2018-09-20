@@ -1,4 +1,4 @@
-class ShipController < ApplicationController
+class ShipsController < ApplicationController
 
     def new
         @ships = Ship.new
