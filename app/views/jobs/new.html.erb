@@ -1,0 +1,24 @@
+<%if @current_user%>
+        <div id="jobCreateContent">
+            <h1 id="jobCreateHead"> Make a Job </h1>
+            <%= form_tag('/create-job', method: 'post') do%>
+                <div class="dropdownField">
+                    <%= f.label :boat_id%>
+                    <%= f.select :boat_id, []%>
+                </div>
+                <div class="dropdownField">
+                    <%= f.label :origin %><br />
+                    <%= f.select :destination, ['Earth', 'Omicron Persei 8', 'Giant Garbage Ball', 'Earth C-137', 'Poopiter', 'The Moon']%>
+                </div>
+                <div class="dropdownField">
+                    <%= f.label :origin %><br />
+                    <%= f.select :destination, ['Earth', 'Omicron Persei 8', 'Giant Garbage Ball', 'Earth C-137', 'Poopiter', 'The Moon']%>
+                </div>
+                <%= label_tag :body, "Job Description (200 character max)", class: "jobBodyLabel"%><br>
+                <%= text_area_tag(:job_desc, nil, cols: 50, rows: 5, maxlength: 200, class: "jobBodyInput")%><br>
+
+
+                <%= submit_tag("Create Job", :class=>"jobSubmit")%>
+            <% end %>
+        </div>
+    <% end %>
