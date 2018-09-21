@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :ships, :jobs, :shipjobs
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'users#index'
-  post '/signout' => 'sessions#destroy'
+  get '/profile' => 'users#profile'
+  post '/ships/new' => 'ships#create'
 end
 
 

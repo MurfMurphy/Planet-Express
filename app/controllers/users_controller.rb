@@ -28,5 +28,9 @@ class UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(:name)
+    def profile
+        if !current_user
+            redirect_to '/'
+        end
     end
 end

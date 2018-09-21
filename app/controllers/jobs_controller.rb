@@ -1,4 +1,4 @@
-class JobsController < ApplicationController
+class JobController < ApplicationController
 
     def new
         @jobs = Job.new

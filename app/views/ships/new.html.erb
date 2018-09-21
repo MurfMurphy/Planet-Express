@@ -1,24 +1,23 @@
-<%if @current_user%>
+
         <div id="shipCreateContent">
             <h1 id="shipCreateHead"> Get Ship Done </h1>
-            <%= form_tag('/create-ship', method: 'post') do%>
+            <%= form_for @ship do |f|%>
                 <div class="field">
-                    <%= f.label :name%>
-                    <%= f.select :name, []%>
+                    <%= f.label :name, "Ship Name", class: "newShipLabel"%><br>
+                    <%= f.text_field :name, class: "newShipInput"%>
                 </div>
 
                 <div class="dropdownField">
-                    <%= f.label :location %><br />
-                    <%= f.select :location, ['Earth', 'Omicron Persei 8', 'Giant Garbage Ball', 'Earth C-137', 'Poopiter', 'The Moon']%>
+                    <%= f.label :location, "Ship Location", class: "newShipLabel" %><br />
+                    <%= f.select :location, options_for_select(['Earth', 'Omicron Persei 8', 'Giant Garbage Ball', 'Earth C-137', 'Poopiter', 'The Moon', 'Wormulon', 'Amish Homeworld', 'Ebola 9', 'Neutral Planet'])%>
                 </div>
 
                 <div class="field">
-                    <%= f.label :capacity%>
-                    <%= f.text_field :capacity%>
+                    <%= f.label :capacity, "Ship Capacity", class: "newShipLabel"%><br>
+                    <%= f.text_field :capacity, class: "newShipInput"%>
                 </div>
 
 
-                <%= submit_tag("Create Ship", :class=>"shipSubmit")%>
+                <%= f.submit "Create Ship", class: "shipSubmit"%>
             <% end %>
         </div>
-    <% end %>
