@@ -23,6 +23,6 @@ class JobsController < ApplicationController
 
 
     def job_params
-        params.require(:job).permit(:user_id, :job_desc, :origin, :destination, :cost, :count_needed)
+        params.require(:job).permit(:job_desc, :origin, :destination, :cost, :count_needed).merge(user_id: current_user.id)
     end
 end
