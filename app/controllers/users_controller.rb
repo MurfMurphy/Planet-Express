@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         @user = User.create(user_params)
             if @user.save
             flash[:notice] = "User created"
-            
+            end
     end
 
     def update
@@ -28,6 +28,8 @@ class UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(:name)
+    end
+    
     def profile
         if !current_user
             redirect_to '/'
