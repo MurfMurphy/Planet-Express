@@ -6,7 +6,13 @@ Rails.application.routes.draw do
   root to: 'users#index'
   get '/profile' => 'users#profile'
   post '/ships/new' => 'ships#create'
+  
 end
+
+
+
+
+
 
 
 # user
@@ -19,4 +25,3 @@ end
 # job id 1, ship id 1
 # job id 1, ship id 2
 # ShipJob.create
-
