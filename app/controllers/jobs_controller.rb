@@ -10,6 +10,7 @@ class JobController < ApplicationController
 
     def create
         @job = Job.create(job_params)
+        redirect '/'
     end
 
     def edit
