@@ -18,6 +18,6 @@ class ShipsController < ApplicationController
     end
     
     def ship_params
-        params.require(:ship).permit(:name, :capacity, :location).merge(user_id: current_user.id)
+        params.require(:ship).permit(:name, :capacity, :location, :shippic).merge(user_id: current_user.id)
     end
 end
