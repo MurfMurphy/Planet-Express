@@ -2,6 +2,8 @@
 <% if user_signed_in? %>
     <%= link_to('Profile', '/profile')%>
     <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+    <%= link_to('Create Job', new_job_path)%>
+    <%= link_to('Create Ship', new_ship_path)%>
 <% else %>
   <li>
   <%= link_to('Login', new_user_session_path)  %>  
@@ -10,14 +12,24 @@
 
 <% if current_user %>
     <h1><%= 'Welcome, ' + current_user.name%></h1>
-<%end%>
 
 
-  <% @job.each do |job|%>
-    <%= job.desc %><br>
-    <%= job.origin %><br>
-    <%= job.destination %><br>
-    <%= job.cost %><br>
-    <%= job.cont_needed %><br>
+    <% @job.each do |job|%>
+    <% if job.user_id == current_user.id %>
+      <%= job.job_desc %><br>
+      <%= job.origin %><br>
+      <%= job.destination %><br>
+      <%= job.cost %><br>
+      <%= job.cont_needed %><br>
+      
+      <% @shipjobs.each do |s|%>
+        <% if s.job_id == job.id %>
+          <% shipName = Ship.find(s.ship_id)%>
+          <%= shipName.name%>
+        <% end %>
+      <% end %>
+        
+      <a href="/jobs/<%= job.id %>/edit">Edit Jobs/Add Ships</a><br>
+    <% end %>
   <% end %>
-
+<%end%>

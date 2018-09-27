@@ -1,5 +1,5 @@
     <h1>Job Details</h1>
-    <%= @job.desc %><br>
+    <%= @job.job_desc %><br>
     <%= @job.origin %><br>
     <%= @job.destination %><br>
     <%= @job.cost %><br>
@@ -7,8 +7,9 @@
 
 
     <h1> Add Ships: </h1>
-    <%= form_tag('/ship-job-create', method: 'post') do %>
-        <%= label_tag :ship_id, "Select A Ship" %><br />
-        <%= select_tag :ship_id, options_for_select([])%>
-        <%= submit_tag("Add Ship", :class=>"shipSubmit")%><br>
+    <%= form_for :ship_job, url: {action: "create", controller: "shipjobs"} do |f|%>
+        <%= f.label :ship_id, "Select A Ship" %><br />
+        <%= f.select :ship_id, options_from_collection_for_select(@user.ships, "id", "name")%>
+        <%= hidden_field_tag "job_id", @job.id%><br>
+        <%= f.submit "Add Ship", class: "shipSubmit"%><br>
     <% end %>

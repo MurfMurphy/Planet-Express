@@ -1,4 +1,4 @@
-
+<% if user_signed_in? %>
         <div id="jobCreateContent">
             <h1 id="jobCreateHead"> Make a Job </h1>
             <%= form_for @job do |f|%>
@@ -12,7 +12,7 @@
                 </div>
                 <div class="field">
                     <%= f.label :job_desc, "Job Description (200 character max)", class: "jobBodyLabel"%><br>
-                    <%= f.text_area (:job_desc, nil, cols: 50, rows: 5, maxlength: 200, class: "jobBodyInput")%><br>
+                    <%= f.text_area :job_desc, cols: 50, rows: 5, maxlength: 200, class: "jobBodyInput"%><br>
                 </div>
                 <div class="field">
                     <%= f.label :cost, "Job Cost", class: "newJobLabel"%><br>
@@ -27,3 +27,4 @@
                 <%= f.submit "Create Job", class:"jobSubmit"%>
             <% end %>
         </div>
+<% end %>
