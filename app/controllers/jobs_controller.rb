@@ -1,7 +1,10 @@
-class JobController < ApplicationController
+class JobsController < ApplicationController
 
     def new
-        @jobs = Job.new
+        if !user_signed_in?
+            redirect_to '/'
+        end
+        @job = Job.new
     end
 
     def show
@@ -10,10 +13,11 @@ class JobController < ApplicationController
 
     def create
         @job = Job.create(job_params)
-        redirect '/'
+        redirect_to '/'
     end
 
     def edit
+        @user = current_user
         @job = Job.find(params[:id])
     end
 

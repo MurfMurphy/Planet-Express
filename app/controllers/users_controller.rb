@@ -8,6 +8,10 @@ class UsersController < ApplicationController
         @user = User.new
     end
 
+        @user = current_user
+        @shipjobs = ShipJob.all
+        @job = Job.all
+    end
     def profile
         if !current_user
             redirect_to '/'
