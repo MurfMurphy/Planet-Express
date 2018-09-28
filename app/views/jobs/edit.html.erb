@@ -1,0 +1,14 @@
+    <h1>Job Details</h1>
+    <%= @job.desc %><br>
+    <%= @job.origin %><br>
+    <%= @job.destination %><br>
+    <%= @job.cost %><br>
+    <%= @job.cont_needed %><br>
+
+
+    <h1> Add Ships: </h1>
+    <%= form_tag('/ship-job-create', method: 'post') do %>
+        <%= label_tag :ship_id, "Select A Ship" %><br />
+        <%= select_tag :ship_id, options_for_select([])%>
+        <%= submit_tag("Add Ship", :class=>"shipSubmit")%><br>
+    <% end %>

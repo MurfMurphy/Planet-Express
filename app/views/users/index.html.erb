@@ -1,6 +1,3 @@
-  <% @user.each do |user| %>
-    <%= user.name %>
-  <% end %>
 
 <% if user_signed_in? %>
     <%= link_to('Profile', '/profile')%>
@@ -15,7 +12,12 @@
     <h1><%= 'Welcome, ' + current_user.name%></h1>
 <%end%>
 
-<% @job.each do |job|%>
 
-<% end %>
+  <% @job.each do |job|%>
+    <%= job.desc %><br>
+    <%= job.origin %><br>
+    <%= job.destination %><br>
+    <%= job.cost %><br>
+    <%= job.cont_needed %><br>
+  <% end %>
 
