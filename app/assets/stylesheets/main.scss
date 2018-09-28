@@ -5,3 +5,28 @@
 @import "styles/profile.scss";
 @import "styles/sign-in.scss";
 @import "styles/sign-up.scss";
+
+body {
+    background-color: rgb(46,121,73);
+    background-image: url('PE.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+
+}
+
+#wrapper {
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid black;
+    margin: 30vh auto;
+    padding: 20px;
+    text-align: center;
+    width: 60%;
+}
+
+form {
+    padding: 20px;
+    // background: white;
+}
+
