@@ -10,6 +10,11 @@ Rails.application.routes.draw do
 end
 
 
+
+
+
+
+
 # user
 
 # shipIds
@@ -20,4 +25,3 @@ end
 # job id 1, ship id 1
 # job id 1, ship id 2
 # ShipJob.create
-
