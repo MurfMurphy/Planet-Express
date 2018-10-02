@@ -17,6 +17,11 @@
                     <%= f.text_field :capacity, class: "newShipInput"%>
                 </div>
 
+                <div class="shippic">
+                    <%= f.label :shippic %>
+                    <%= f.file_field :shippic %>
+                </div>
+
 
                 <%= f.submit "Create Ship", class: "shipSubmit"%>
             <% end %>
